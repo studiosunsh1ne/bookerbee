@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Booker Bee | She Books It For You.</title>
 
@@ -11,11 +15,17 @@ content="Booker Bee helps customers plan events, find the right vendors and get 
 
 <meta name="theme-color" content="#F5B700">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
 rel="stylesheet">
+
 
 <style>
 
@@ -24,675 +34,1190 @@ rel="stylesheet">
 ========================================================= */
 
 :root{
+
     --gold:#F5B700;
     --amber:#FFCB45;
     --orange:#FF9F1C;
 
-    --black:#080808;
-    --dark:#0d0e11;
-    --surface:#15171d;
-    --surface2:#1d2028;
+    --black:#070707;
+    --dark:#0c0d10;
+    --surface:#14161b;
+    --surface2:#1b1e25;
 
-    --white:#fff;
+    --white:#ffffff;
     --text:#f5f5f5;
-    --muted:#a9abb2;
+    --muted:#aeb0b7;
 
     --border:rgba(255,255,255,.10);
-    --gold-border:rgba(245,183,0,.35);
+    --gold-border:rgba(245,183,0,.32);
 
     --radius:24px;
-    --shadow:0 25px 70px rgba(0,0,0,.5);
+
+    --shadow:
+        0 25px 70px rgba(0,0,0,.55);
+
 }
+
 
 /* =========================================================
    RESET
 ========================================================= */
 
 *{
+
     margin:0;
     padding:0;
+
     box-sizing:border-box;
+
     scroll-behavior:smooth;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
 }
 
 body{
+
     font-family:"Inter",sans-serif;
+
     background:
-        radial-gradient(circle at 80% 0%, rgba(245,183,0,.13), transparent 30%),
-        linear-gradient(180deg,#0c0c0c,#070707);
+
+        radial-gradient(
+            circle at 80% 0%,
+            rgba(245,183,0,.15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            180deg,
+            #101010 0%,
+            #080808 45%,
+            #050505 100%
+        );
+
     color:var(--text);
+
     line-height:1.6;
+
     overflow-x:hidden;
+
 }
+
+
+/* =========================================================
+   ACTUAL HONEYCOMB / HIVE BACKGROUND
+========================================================= */
 
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
-    opacity:.035;
+
+    z-index:-2;
+
+    opacity:.075;
+
     background-image:
-        linear-gradient(30deg,#fff 12%,transparent 12.5%,transparent 87%,#fff 87.5%,#fff),
-        linear-gradient(150deg,#fff 12%,transparent 12.5%,transparent 87%,#fff 87.5%,#fff),
-        linear-gradient(30deg,#fff 12%,transparent 12.5%,transparent 87%,#fff 87.5%,#fff),
-        linear-gradient(150deg,#fff 12%,transparent 12.5%,transparent 87%,#fff 87.5%,#fff);
-    background-size:80px 140px;
-    background-position:0 0,0 0,40px 70px,40px 70px;
-    z-index:-1;
+
+        linear-gradient(
+            30deg,
+            rgba(245,183,0,.9) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(245,183,0,.9) 87.5%,
+            rgba(245,183,0,.9)
+        ),
+
+        linear-gradient(
+            150deg,
+            rgba(245,183,0,.9) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(245,183,0,.9) 87.5%,
+            rgba(245,183,0,.9)
+        ),
+
+        linear-gradient(
+            30deg,
+            rgba(245,183,0,.9) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(245,183,0,.9) 87.5%,
+            rgba(245,183,0,.9)
+        ),
+
+        linear-gradient(
+            150deg,
+            rgba(245,183,0,.9) 12%,
+            transparent 12.5%,
+            transparent 87%,
+            rgba(245,183,0,.9) 87.5%,
+            rgba(245,183,0,.9)
+        ),
+
+        linear-gradient(
+            60deg,
+            rgba(245,183,0,.9) 25%,
+            transparent 25.5%,
+            transparent 75%,
+            rgba(245,183,0,.9) 75%
+        ),
+
+        linear-gradient(
+            60deg,
+            rgba(245,183,0,.9) 25%,
+            transparent 25.5%,
+            transparent 75%,
+            rgba(245,183,0,.9) 75%
+        );
+
+    background-size:
+        80px 140px,
+        80px 140px,
+        80px 140px,
+        80px 140px,
+        80px 140px,
+        80px 140px;
+
+    background-position:
+        0 0,
+        0 0,
+        40px 70px,
+        40px 70px,
+        0 0,
+        40px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+
 }
 
+
+/* Additional subtle honeycomb overlay */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(245,183,0,.08),
+            transparent 22%
+        ),
+
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(255,159,28,.05),
+            transparent 25%
+        );
+
+}
+
+
+/* =========================================================
+   BASIC ELEMENTS
+========================================================= */
+
 img{
+
     max-width:100%;
+
     display:block;
+
 }
 
 a{
+
     text-decoration:none;
+
     color:inherit;
+
 }
 
 button,
 input,
 select,
 textarea{
+
     font-family:inherit;
+
 }
 
 .container{
+
     width:min(1160px,92%);
+
     margin:auto;
+
 }
 
 section{
+
     padding:100px 0;
+
 }
+
 
 /* =========================================================
    NAV
 ========================================================= */
 
 nav{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
-    background:rgba(8,8,8,.88);
+    background:rgba(7,7,7,.88);
+
     backdrop-filter:blur(18px);
 
     border-bottom:1px solid var(--border);
+
 }
 
 .nav-inner{
+
     min-height:76px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
-    gap:30px;
+
+    gap:25px;
+
 }
 
 .logo{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
 }
 
 .logo-bee{
-    font-size:34px;
+
+    font-size:33px;
+
 }
 
 .logo-text{
+
     display:flex;
+
     flex-direction:column;
+
     line-height:1.05;
+
 }
 
 .logo-name{
+
     font-size:20px;
+
     font-weight:900;
+
 }
 
 .logo-name span{
+
     color:var(--gold);
+
 }
 
 .logo-tagline{
-    font-size:10px;
+
     color:var(--muted);
-    margin-top:3px;
+
+    font-size:10px;
+
+    margin-top:4px;
+
 }
 
 .nav-links{
+
     display:flex;
+
     align-items:center;
-    gap:28px;
-    font-size:14px;
+
+    gap:25px;
+
+    font-size:13px;
+
     color:#ddd;
+
+}
+
+.nav-links a{
+
+    transition:.2s ease;
+
 }
 
 .nav-links a:hover{
+
     color:var(--gold);
+
 }
 
 .nav-cta{
+
     padding:11px 17px;
+
     border-radius:12px;
+
     background:var(--gold);
-    color:#111;
-    font-weight:800;
+
+    color:#111 !important;
+
+    font-weight:900;
+
 }
+
 
 /* =========================================================
    BUTTONS
 ========================================================= */
 
 .button{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:8px;
 
-    padding:16px 26px;
+    padding:16px 25px;
 
     border-radius:14px;
 
-    background:linear-gradient(135deg,var(--gold),var(--orange));
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--orange)
+        );
+
     color:#111;
 
     font-weight:900;
+
     border:none;
 
     cursor:pointer;
 
     transition:.25s ease;
+
 }
 
 .button:hover{
+
     transform:translateY(-3px);
-    box-shadow:0 15px 35px rgba(245,183,0,.25);
+
+    box-shadow:
+        0 15px 35px
+        rgba(245,183,0,.25);
+
 }
 
 .button.secondary{
-    background:transparent;
+
+    background:rgba(255,255,255,.025);
+
     color:white;
+
     border:1px solid rgba(255,255,255,.25);
+
 }
 
 .button.secondary:hover{
+
     border-color:var(--gold);
+
     color:var(--gold);
+
 }
+
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero{
+
     padding:90px 0 80px;
+
     position:relative;
+
 }
 
 .hero-grid{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:70px;
+
     align-items:center;
+
 }
 
 .hero-copy{
+
     position:relative;
+
     z-index:2;
+
 }
 
 .founding-pill{
+
     display:inline-flex;
+
     align-items:center;
+
     gap:8px;
 
     padding:9px 16px;
+
     border-radius:999px;
 
     border:1px solid var(--gold-border);
+
     background:rgba(245,183,0,.08);
 
     color:var(--gold);
+
     font-size:13px;
+
     font-weight:900;
 
     margin-bottom:25px;
+
 }
 
 .hero h1{
+
     font-size:clamp(48px,6vw,76px);
+
     line-height:.98;
+
     letter-spacing:-4px;
+
     font-weight:900;
+
     margin-bottom:25px;
+
 }
 
 .hero h1 span{
+
     color:var(--gold);
+
 }
 
 .hero-description{
+
     max-width:590px;
+
     color:var(--muted);
+
     font-size:19px;
-    margin-bottom:30px;
+
+    margin-bottom:25px;
+
 }
 
 .hero-hook{
+
     color:white;
+
     font-size:20px;
+
     font-weight:800;
+
     margin-bottom:30px;
+
 }
 
 .hero-hook span{
+
     color:var(--gold);
+
 }
 
 .hero-buttons{
+
     display:flex;
+
     flex-wrap:wrap;
+
     gap:14px;
+
 }
 
 .hero-proof{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:12px;
+
     margin-top:38px;
+
 }
 
 .proof{
+
     padding:15px;
+
     border:1px solid var(--border);
+
     background:rgba(255,255,255,.035);
+
     border-radius:16px;
+
 }
 
 .proof-icon{
+
     font-size:20px;
+
     margin-bottom:5px;
+
 }
 
 .proof strong{
+
     display:block;
+
     font-size:13px;
+
 }
 
 .proof small{
+
     color:var(--muted);
+
     font-size:11px;
+
 }
 
+
 /* =========================================================
-   BEE HERO CHARACTER
+   BEE CHARACTER
 ========================================================= */
 
 .bee-stage{
+
     position:relative;
+
     min-height:520px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
 }
 
 .bee-glow{
+
     position:absolute;
-    width:420px;
-    height:420px;
+
+    width:430px;
+
+    height:430px;
 
     border-radius:50%;
 
-    background:radial-gradient(
-        circle,
-        rgba(245,183,0,.28),
-        rgba(245,183,0,.04) 45%,
-        transparent 70%
-    );
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(245,183,0,.30),
+            rgba(245,183,0,.05) 45%,
+            transparent 70%
+        );
 
     filter:blur(10px);
+
 }
 
 .bee-character{
+
     position:relative;
+
     z-index:2;
 
     width:260px;
+
     height:300px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-size:190px;
 
     filter:
-        drop-shadow(0 20px 30px rgba(0,0,0,.7))
-        drop-shadow(0 0 35px rgba(245,183,0,.25));
 
-    animation:float 4s ease-in-out infinite;
+        drop-shadow(
+            0 20px 30px
+            rgba(0,0,0,.7)
+        )
+
+        drop-shadow(
+            0 0 35px
+            rgba(245,183,0,.25)
+        );
+
+    animation:
+        floatBee 4s ease-in-out infinite;
+
 }
 
-@keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-13px)}
+@keyframes floatBee{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-13px);
+
+    }
+
 }
 
 .bee-speech{
+
     position:absolute;
+
     right:0;
+
     top:65px;
 
-    max-width:210px;
+    max-width:215px;
 
     padding:18px 20px;
 
-    border-radius:20px 20px 4px 20px;
+    border-radius:
+        20px 20px 4px 20px;
 
     background:white;
+
     color:#111;
 
     font-size:14px;
+
     font-weight:700;
 
     box-shadow:var(--shadow);
+
 }
 
 .bee-speech strong{
+
     color:#d89d00;
+
 }
 
 .bee-label{
+
     position:absolute;
+
     bottom:55px;
+
     left:50%;
+
     transform:translateX(-50%);
 
     text-align:center;
+
 }
 
 .bee-label strong{
+
     display:block;
+
     font-size:28px;
+
 }
 
 .bee-label span{
+
     color:var(--muted);
+
     font-size:14px;
+
 }
+
 
 /* =========================================================
    FOUNDING 50
 ========================================================= */
 
 .founding{
+
     padding-top:30px;
+
 }
 
 .founding-box{
+
     position:relative;
 
     overflow:hidden;
 
     border:1px solid var(--gold-border);
+
     border-radius:30px;
 
     padding:55px;
 
     background:
-        radial-gradient(circle at 10% 50%,rgba(245,183,0,.16),transparent 35%),
-        linear-gradient(135deg,rgba(245,183,0,.09),rgba(255,255,255,.025));
+
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(245,183,0,.17),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(245,183,0,.09),
+            rgba(255,255,255,.025)
+        );
 
     box-shadow:var(--shadow);
+
 }
 
 .founding-box::after{
+
     content:"🐝";
+
     position:absolute;
+
     right:-30px;
+
     bottom:-55px;
+
     font-size:190px;
+
     opacity:.06;
+
 }
 
 .founding-grid{
+
     display:grid;
+
     grid-template-columns:1.2fr 1fr;
+
     gap:50px;
+
     align-items:center;
+
 }
 
 .eyebrow{
+
     color:var(--gold);
+
     font-size:12px;
+
     font-weight:900;
+
     letter-spacing:1.5px;
+
     text-transform:uppercase;
+
     margin-bottom:12px;
+
 }
 
 .founding-box h2{
+
     font-size:44px;
+
     line-height:1.08;
+
     letter-spacing:-2px;
+
     margin-bottom:18px;
+
 }
 
 .founding-box h2 span{
+
     color:var(--gold);
+
 }
 
 .founding-box > p{
+
     color:var(--muted);
+
     max-width:650px;
+
 }
 
 .founding-benefits{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:12px;
+
 }
 
 .founding-benefit{
+
     padding:20px;
+
     border-radius:17px;
+
     background:rgba(255,255,255,.045);
+
     border:1px solid var(--border);
+
 }
 
 .founding-benefit strong{
+
     display:block;
+
     margin-bottom:5px;
+
 }
 
 .founding-benefit p{
+
     color:var(--muted);
+
     font-size:13px;
+
 }
+
 
 /* =========================================================
    SECTION TITLES
 ========================================================= */
 
 .section-title{
+
     text-align:center;
+
     font-size:45px;
+
     line-height:1.05;
+
     letter-spacing:-2px;
+
     margin-bottom:18px;
+
 }
 
 .section-title span{
+
     color:var(--gold);
+
 }
 
 .section-subtitle{
+
     max-width:700px;
+
     margin:0 auto 55px;
+
     text-align:center;
+
     color:var(--muted);
+
     font-size:17px;
+
 }
 
+
 /* =========================================================
-   BEE DIFFERENTIATOR
+   BEE FIRST
 ========================================================= */
 
 .bee-first{
-    background:rgba(255,255,255,.018);
+
+    background:
+        rgba(255,255,255,.018);
+
     border-top:1px solid var(--border);
+
     border-bottom:1px solid var(--border);
+
 }
 
 .bee-first-grid{
+
     display:grid;
+
     grid-template-columns:.85fr 1.15fr;
+
     gap:70px;
+
     align-items:center;
+
 }
 
 .bee-big{
+
     font-size:180px;
+
     text-align:center;
-    filter:drop-shadow(0 20px 40px rgba(0,0,0,.6));
+
+    filter:
+        drop-shadow(
+            0 20px 40px
+            rgba(0,0,0,.6)
+        );
+
 }
 
 .bee-first-copy .eyebrow{
+
     margin-bottom:15px;
+
 }
 
 .bee-first-copy h2{
+
     font-size:48px;
+
     line-height:1.05;
+
     letter-spacing:-2px;
+
     margin-bottom:20px;
+
 }
 
 .bee-first-copy h2 span{
+
     color:var(--gold);
+
 }
 
 .bee-first-copy > p{
+
     color:var(--muted);
+
     font-size:18px;
+
     margin-bottom:30px;
+
 }
 
 .bee-flow{
+
     display:grid;
+
     gap:12px;
+
 }
 
 .flow-item{
+
     display:flex;
+
     align-items:center;
+
     gap:16px;
 
     padding:16px;
 
     border:1px solid var(--border);
+
     border-radius:17px;
 
     background:rgba(255,255,255,.035);
+
 }
 
 .flow-number{
+
     min-width:38px;
+
     height:38px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:50%;
 
     background:rgba(245,183,0,.13);
+
     color:var(--gold);
 
     font-weight:900;
+
 }
 
 .flow-item strong{
+
     display:block;
+
 }
 
 .flow-item span{
+
     color:var(--muted);
+
     font-size:13px;
+
 }
 
+
 /* =========================================================
-   USER SCREEN
+   CUSTOMER EXPERIENCE
 ========================================================= */
 
 .user-proof{
+
     padding-top:110px;
+
 }
 
 .user-proof-header{
-    text-align:center;
-    margin-bottom:50px;
-}
 
-.user-proof-header .eyebrow{
-    margin-bottom:10px;
+    text-align:center;
+
+    margin-bottom:50px;
+
 }
 
 .user-proof-header h2{
+
     font-size:45px;
+
     line-height:1.05;
+
     letter-spacing:-2px;
+
 }
 
 .user-proof-header h2 span{
+
     color:var(--gold);
+
 }
 
 .user-proof-header p{
+
     color:var(--muted);
+
     max-width:650px;
+
     margin:15px auto 0;
+
 }
 
 .screen-wrap{
+
     display:flex;
+
     justify-content:center;
+
 }
 
 .phone{
+
     width:365px;
+
     max-width:100%;
 
     border:9px solid #24262d;
+
     border-radius:40px;
+
     overflow:hidden;
 
     background:#101115;
 
     box-shadow:
+
         0 35px 80px rgba(0,0,0,.65),
-        0 0 0 1px rgba(245,183,0,.25);
+
+        0 0 0 1px
+        rgba(245,183,0,.25);
+
 }
 
 .phone-top{
+
     padding:24px 20px 18px;
 
     display:flex;
+
     align-items:center;
+
     gap:13px;
 
     background:#1a1c22;
+
     border-bottom:1px solid var(--border);
+
 }
 
 .phone-avatar{
+
     width:50px;
+
     height:50px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:14px;
@@ -700,129 +1225,209 @@ nav{
     background:var(--gold);
 
     font-size:28px;
+
 }
 
 .phone-name{
+
     flex:1;
+
 }
 
 .phone-name strong{
+
     display:block;
+
     font-size:17px;
+
 }
 
 .phone-name span{
+
     color:var(--muted);
+
     font-size:12px;
+
 }
 
 .online{
+
     width:10px;
+
     height:10px;
+
     background:#6ddd78;
+
     border-radius:50%;
+
 }
 
 .chat{
+
     padding:28px 18px 25px;
+
 }
 
 .bubble{
+
     max-width:82%;
+
     padding:15px 17px;
+
     border-radius:20px;
+
     margin-bottom:15px;
+
     font-size:14px;
+
 }
 
 .bubble.bee{
+
     background:#262933;
+
     margin-right:auto;
+
 }
 
 .bubble.user{
+
     background:var(--gold);
+
     color:#111;
+
     margin-left:auto;
+
     font-weight:800;
+
 }
 
 .find-box{
+
     margin-top:10px;
+
     background:#262933;
+
     border-radius:20px;
+
     padding:16px;
+
 }
 
 .find-intro{
+
     margin-bottom:12px;
+
     font-size:14px;
+
 }
 
 .find-row{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     padding:13px 12px;
+
     margin-top:7px;
 
     background:#30333d;
+
     border-radius:13px;
+
 }
 
 .find-row span{
+
     font-size:13px;
+
 }
 
 .find-row strong{
+
     color:var(--gold);
+
     font-size:13px;
+
 }
 
 .find-button{
+
     display:block;
+
     text-align:center;
 
     margin-top:16px;
+
     padding:14px;
 
     background:var(--gold);
+
     color:#111;
 
     border-radius:13px;
 
     font-weight:900;
+
 }
+
 
 /* =========================================================
    VENDOR VALUE
 ========================================================= */
 
 .vendor-section{
-    background:rgba(255,255,255,.018);
+
+    background:
+        rgba(255,255,255,.018);
+
 }
 
 .vendor-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:15px;
+
 }
 
 .vendor-card{
+
     padding:27px 22px;
 
     border-radius:22px;
+
     border:1px solid var(--border);
 
     background:rgba(255,255,255,.035);
+
+    transition:.25s ease;
+
+}
+
+.vendor-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(245,183,0,.35);
+
 }
 
 .vendor-icon{
+
     width:48px;
+
     height:48px;
 
     display:grid;
+
     place-items:center;
 
     border-radius:15px;
@@ -832,214 +1437,349 @@ nav{
     font-size:23px;
 
     margin-bottom:20px;
+
 }
 
 .vendor-card h3{
+
     font-size:17px;
+
     margin-bottom:8px;
+
 }
 
 .vendor-card p{
+
     color:var(--muted);
+
     font-size:13px;
+
 }
+
 
 /* =========================================================
    COMPETITIVE POSITIONING
 ========================================================= */
 
 .positioning{
+
     padding-top:80px;
+
 }
 
 .positioning-box{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
 
     border:1px solid var(--border);
+
     border-radius:28px;
 
     overflow:hidden;
+
 }
 
 .positioning-side{
+
     padding:40px;
+
 }
 
 .positioning-side:first-child{
+
     background:#151515;
+
 }
 
 .positioning-side:last-child{
+
     background:
-        linear-gradient(135deg,rgba(245,183,0,.14),rgba(245,183,0,.035));
+        linear-gradient(
+            135deg,
+            rgba(245,183,0,.14),
+            rgba(245,183,0,.035)
+        );
+
     border-left:1px solid var(--gold-border);
+
 }
 
 .positioning-side h3{
+
     font-size:26px;
+
     margin-bottom:20px;
+
 }
 
 .positioning-side h3 span{
+
     color:var(--gold);
+
 }
 
 .positioning-side p{
+
     color:var(--muted);
+
     margin-bottom:18px;
+
 }
 
 .positioning-list{
+
     display:grid;
+
     gap:11px;
+
 }
 
 .positioning-list div{
+
     display:flex;
+
     gap:10px;
+
     font-size:14px;
+
 }
 
 .positioning-list strong{
+
     color:var(--gold);
+
 }
+
 
 /* =========================================================
    HOW IT WORKS
 ========================================================= */
 
 .steps{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:18px;
+
 }
 
 .step{
+
     position:relative;
 
     padding:30px 24px;
 
     border:1px solid var(--border);
+
     border-radius:22px;
 
     background:rgba(255,255,255,.03);
+
+    transition:.25s ease;
+
+}
+
+.step:hover{
+
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(245,183,0,.3);
+
 }
 
 .step-number{
+
     color:var(--gold);
+
     font-size:13px;
+
     font-weight:900;
+
     margin-bottom:18px;
+
 }
 
 .step-icon{
+
     font-size:35px;
+
     margin-bottom:15px;
+
 }
 
 .step h3{
+
     font-size:18px;
+
     margin-bottom:9px;
+
 }
 
 .step p{
+
     color:var(--muted);
+
     font-size:13px;
+
 }
 
+
 /* =========================================================
-   FOUNDING CTA
+   FINAL CTA
 ========================================================= */
 
 .final-cta{
+
     text-align:center;
 
     padding:80px 30px;
 
     border:1px solid var(--gold-border);
+
     border-radius:30px;
 
     background:
-        radial-gradient(circle at center,rgba(245,183,0,.16),transparent 55%);
+
+        radial-gradient(
+            circle at center,
+            rgba(245,183,0,.16),
+            transparent 55%
+        );
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.35);
+
 }
 
 .final-cta h2{
+
     font-size:50px;
+
     line-height:1;
+
     letter-spacing:-2px;
+
     margin-bottom:18px;
+
 }
 
 .final-cta h2 span{
+
     color:var(--gold);
+
 }
 
 .final-cta p{
+
     max-width:650px;
+
     margin:0 auto 30px;
+
     color:var(--muted);
+
 }
 
 .final-buttons{
+
     display:flex;
+
     justify-content:center;
+
     flex-wrap:wrap;
+
     gap:14px;
+
 }
+
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer{
+
     margin-top:100px;
+
     padding:55px 0 25px;
 
     border-top:1px solid var(--border);
 
     background:#050505;
+
 }
 
 .footer-top{
+
     display:flex;
+
     justify-content:space-between;
+
     gap:40px;
+
 }
 
 .footer-brand p{
+
     max-width:350px;
+
     color:var(--muted);
+
     margin-top:12px;
+
     font-size:13px;
+
 }
 
 .footer-links{
+
     display:flex;
+
     gap:28px;
+
     flex-wrap:wrap;
+
 }
 
 .footer-links a{
+
     color:var(--muted);
+
     font-size:13px;
+
+    transition:.2s ease;
+
 }
 
 .footer-links a:hover{
+
     color:var(--gold);
+
 }
 
 .footer-bottom{
+
     border-top:1px solid var(--border);
+
     margin-top:40px;
+
     padding-top:20px;
 
     display:flex;
+
     justify-content:space-between;
 
     color:#777;
+
     font-size:12px;
+
 }
+
 
 /* =========================================================
    MOBILE
@@ -1048,183 +1788,270 @@ footer{
 @media(max-width:950px){
 
     .nav-links{
+
         display:none;
+
     }
 
     .hero{
+
         padding-top:65px;
+
     }
 
     .hero-grid,
     .founding-grid,
     .bee-first-grid,
     .positioning-box{
+
         grid-template-columns:1fr;
+
     }
 
     .hero{
+
         text-align:center;
+
     }
 
     .hero-description{
+
         margin-left:auto;
+
         margin-right:auto;
+
     }
 
     .hero-buttons{
+
         justify-content:center;
+
     }
 
     .hero-proof{
+
         text-align:left;
+
     }
 
     .bee-stage{
+
         min-height:400px;
+
         margin-top:20px;
+
     }
 
     .bee-speech{
+
         right:5%;
+
         top:20px;
+
     }
 
     .bee-character{
+
         font-size:150px;
+
     }
 
     .bee-big{
+
         font-size:130px;
+
     }
 
     .bee-first-copy{
+
         text-align:center;
+
     }
 
     .bee-flow{
+
         text-align:left;
+
     }
 
     .positioning-side:last-child{
+
         border-left:none;
+
         border-top:1px solid var(--gold-border);
+
     }
 
     .vendor-grid,
     .steps{
+
         grid-template-columns:1fr 1fr;
+
     }
 
     .founding-box{
+
         padding:35px 24px;
+
     }
 
     .founding-box h2{
+
         font-size:35px;
+
     }
 
     .founding-benefits{
+
         margin-top:10px;
+
     }
+
 }
+
 
 @media(max-width:600px){
 
     section{
+
         padding:75px 0;
+
     }
 
     .hero h1{
+
         font-size:48px;
+
         letter-spacing:-2.5px;
+
     }
 
     .hero-description{
+
         font-size:17px;
+
     }
 
     .hero-proof{
+
         grid-template-columns:1fr;
+
     }
 
     .bee-stage{
+
         min-height:350px;
+
     }
 
     .bee-character{
+
         font-size:125px;
+
     }
 
     .bee-speech{
+
         right:0;
+
         top:5px;
+
         font-size:12px;
+
         max-width:165px;
+
     }
 
     .bee-label{
+
         bottom:20px;
+
     }
 
     .bee-label strong{
+
         font-size:22px;
+
     }
 
     .section-title,
     .user-proof-header h2{
+
         font-size:34px;
+
     }
 
     .bee-first-copy h2{
+
         font-size:36px;
+
     }
 
     .vendor-grid,
     .steps,
     .founding-benefits{
+
         grid-template-columns:1fr;
+
     }
 
     .positioning-side{
+
         padding:28px 22px;
+
     }
 
     .final-cta h2{
+
         font-size:38px;
+
     }
 
     .footer-top,
     .footer-bottom{
+
         flex-direction:column;
+
     }
 
     .phone{
+
         width:340px;
+
     }
 
     .nav-cta{
+
         padding:10px 12px;
+
         font-size:12px;
+
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <!-- =========================================================
-     NAV
+     NAVIGATION
 ========================================================= -->
 
 <nav>
 
 <div class="container nav-inner">
 
+
 <a href="#" class="logo">
 
-<div class="logo-bee">🐝</div>
+<div class="logo-bee">
+🐝
+</div>
 
 <div class="logo-text">
 
@@ -1240,13 +2067,28 @@ She Books It For You.
 
 </a>
 
+
 <div class="nav-links">
 
-<a href="#vendors">For Vendors</a>
-<a href="#how">How It Works</a>
-<a href="#bee">Meet Bee</a>
-<a href="#customer">The Customer</a>
-<a href="#founding">Founding 50</a>
+<a href="#vendors">
+For Vendors
+</a>
+
+<a href="#how">
+How It Works
+</a>
+
+<a href="#bee">
+Meet Bee
+</a>
+
+<a href="#customer">
+Customer Experience
+</a>
+
+<a href="#founding">
+Founding 50
+</a>
 
 <a
 href="https://wa.me/27847517475?text=Hi%20Bee%20%F0%9F%90%9D%20I%27m%20planning%20an%20event%20and%20need%20some%20help."
@@ -1273,22 +2115,32 @@ class="nav-cta">
 
 <div class="hero-grid">
 
+
 <div class="hero-copy">
 
+
 <div class="founding-pill">
+
 🐝 FOUNDING 50 VENDORS
+
 </div>
 
+
 <h1>
+
 Let Bee bring you
+
 <span>bookings.</span>
+
 </h1>
+
 
 <p class="hero-description">
 
 Booker Bee connects event vendors with people who are actively planning celebrations and need exactly what you offer.
 
 </p>
+
 
 <p class="hero-hook">
 
@@ -1304,31 +2156,43 @@ Bee helps customers find you.
 
 </p>
 
+
 <div class="hero-buttons">
 
+
 <a
-href="https://wa.me/27847517475?text=Hi%20Booker%20Bee%20%F0%9F%90%9D%20I%27d%20like%20to%20claim%20my%20FREE%20Founding%2050%20vendor%20spot."
+href="https://wa.me/27847517475?text=Hi%20Bee%20%F0%9F%90%9D%20I%27d%20like%20to%20claim%20my%20FREE%20Founding%2050%20vendor%20spot."
 class="button">
 
 🐝 Claim My Founding Spot →
 
 </a>
 
-<a href="#customer" class="button secondary">
+
+<a
+href="#customer"
+class="button secondary js-scroll">
 
 See What Customers See
 
 </a>
 
+
 </div>
+
 
 <div class="hero-proof">
 
+
 <div class="proof">
 
-<div class="proof-icon">🎁</div>
+<div class="proof-icon">
+🎁
+</div>
 
-<strong>Free Forever</strong>
+<strong>
+Free Forever
+</strong>
 
 <small>
 First 50 vendors
@@ -1336,11 +2200,16 @@ First 50 vendors
 
 </div>
 
+
 <div class="proof">
 
-<div class="proof-icon">💬</div>
+<div class="proof-icon">
+💬
+</div>
 
-<strong>Direct Enquiries</strong>
+<strong>
+Direct Enquiries
+</strong>
 
 <small>
 From real customers
@@ -1348,11 +2217,16 @@ From real customers
 
 </div>
 
+
 <div class="proof">
 
-<div class="proof-icon">🐝</div>
+<div class="proof-icon">
+🐝
+</div>
 
-<strong>Bee Finds You</strong>
+<strong>
+Bee Finds You
+</strong>
 
 <small>
 When customers need you
@@ -1360,40 +2234,56 @@ When customers need you
 
 </div>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- BEE -->
+
+<!-- =====================================================
+     BEE
+===================================================== -->
 
 <div class="bee-stage">
 
-<div class="bee-glow"></div>
+
+<div class="bee-glow">
+</div>
+
 
 <div class="bee-character">
 🐝
 </div>
 
+
 <div class="bee-speech">
 
-<strong>Hi, I'm Bee. 💛</strong>
+<strong>
+Hi, I'm Bee. 💛
+</strong>
 
-<br>
+<br><br>
 
 Tell me what you're planning and I'll help find the people you need.
 
 </div>
 
+
 <div class="bee-label">
 
-<strong>Meet Bee.</strong>
+<strong>
+Meet Bee.
+</strong>
 
-<span>Your booking assistant.</span>
+<span>
+Your booking assistant.
+</span>
 
 </div>
 
+
 </div>
+
 
 </div>
 
@@ -1406,25 +2296,39 @@ Tell me what you're planning and I'll help find the people you need.
      FOUNDING 50
 ========================================================= -->
 
-<section class="founding" id="founding">
+<section
+class="founding"
+id="founding">
 
 <div class="container">
 
+
 <div class="founding-box">
+
 
 <div class="founding-grid">
 
+
 <div>
+
 
 <div class="eyebrow">
 🐝 The Founding 50
 </div>
 
+
 <h2>
+
 Be one of the first
-<span>50 vendors</span>
+
+<span>
+50 vendors
+</span>
+
 in the Hive.
+
 </h2>
+
 
 <p>
 
@@ -1432,23 +2336,30 @@ We're building Booker Bee with the first vendors who join us. Founding vendors g
 
 </p>
 
+
 <br>
 
+
 <a
-href="https://wa.me/27847517475?text=Hi%20Booker%20Bee%20%F0%9F%90%9D%20I%27d%20like%20to%20claim%20my%20FREE%20Founding%2050%20vendor%20spot."
+href="https://wa.me/27847517475?text=Hi%20Bee%20%F0%9F%90%9D%20I%27d%20like%20to%20claim%20my%20FREE%20Founding%2050%20vendor%20spot."
 class="button">
 
 Claim My Founding Spot →
 
 </a>
 
+
 </div>
+
 
 <div class="founding-benefits">
 
+
 <div class="founding-benefit">
 
-<strong>🎁 Free Forever</strong>
+<strong>
+🎁 Free Forever
+</strong>
 
 <p>
 No monthly membership fee for founding vendors.
@@ -1456,9 +2367,12 @@ No monthly membership fee for founding vendors.
 
 </div>
 
+
 <div class="founding-benefit">
 
-<strong>💬 Direct Enquiries</strong>
+<strong>
+💬 Direct Enquiries
+</strong>
 
 <p>
 Connect with customers who need what you offer.
@@ -1466,9 +2380,12 @@ Connect with customers who need what you offer.
 
 </div>
 
+
 <div class="founding-benefit">
 
-<strong>👑 Founding Status</strong>
+<strong>
+👑 Founding Status
+</strong>
 
 <p>
 Be part of the original Booker Bee Hive.
@@ -1476,15 +2393,19 @@ Be part of the original Booker Bee Hive.
 
 </div>
 
+
 <div class="founding-benefit">
 
-<strong>🚀 Early Advantage</strong>
+<strong>
+🚀 Early Advantage
+</strong>
 
 <p>
 Get in early while we're building the marketplace.
 </p>
 
 </div>
+
 
 </div>
 
@@ -1501,11 +2422,15 @@ Get in early while we're building the marketplace.
      BEE FIRST
 ========================================================= -->
 
-<section class="bee-first" id="bee">
+<section
+class="bee-first"
+id="bee">
 
 <div class="container">
 
+
 <div class="bee-first-grid">
+
 
 <div>
 
@@ -1515,11 +2440,14 @@ Get in early while we're building the marketplace.
 
 </div>
 
+
 <div class="bee-first-copy">
+
 
 <div class="eyebrow">
 The Booker Bee Difference
 </div>
+
 
 <h2>
 
@@ -1531,6 +2459,7 @@ She does the finding.
 
 </h2>
 
+
 <p>
 
 Customers don't always know exactly which vendors they need. They know what they're planning.
@@ -1539,11 +2468,15 @@ That's where Bee comes in.
 
 </p>
 
+
 <div class="bee-flow">
+
 
 <div class="flow-item">
 
-<div class="flow-number">1</div>
+<div class="flow-number">
+1
+</div>
 
 <div>
 
@@ -1552,16 +2485,19 @@ The customer talks to Bee.
 </strong>
 
 <span>
-“I'm planning my daughter's 21st...”
+"I'm planning my daughter's 21st..."
 </span>
 
 </div>
 
 </div>
 
+
 <div class="flow-item">
 
-<div class="flow-number">2</div>
+<div class="flow-number">
+2
+</div>
 
 <div>
 
@@ -1577,9 +2513,12 @@ Catering. DJ. Decor. Cake. Photography.
 
 </div>
 
+
 <div class="flow-item">
 
-<div class="flow-number">3</div>
+<div class="flow-number">
+3
+</div>
 
 <div>
 
@@ -1595,9 +2534,12 @@ That's where your business comes in.
 
 </div>
 
+
 <div class="flow-item">
 
-<div class="flow-number">4</div>
+<div class="flow-number">
+4
+</div>
 
 <div>
 
@@ -1613,6 +2555,7 @@ The customer can connect with the right vendor.
 
 </div>
 
+
 </div>
 
 </div>
@@ -1625,18 +2568,24 @@ The customer can connect with the right vendor.
 
 
 <!-- =========================================================
-     CUSTOMER SCREEN — ONE SCREEN ONLY
+     CUSTOMER EXPERIENCE
+     ONE SCREEN ONLY
 ========================================================= -->
 
-<section class="user-proof" id="customer">
+<section
+class="user-proof"
+id="customer">
 
 <div class="container">
 
+
 <div class="user-proof-header">
+
 
 <div class="eyebrow">
 What Your Future Customers See
 </div>
+
 
 <h2>
 
@@ -1644,39 +2593,53 @@ They talk to <span>Bee.</span>
 
 </h2>
 
+
 <p>
 
 This is the experience we're building for customers. They tell Bee what they're planning — and Bee helps them figure out who they need.
 
 </p>
 
+
 </div>
 
 
 <div class="screen-wrap">
 
+
 <div class="phone">
 
+
 <div class="phone-top">
+
 
 <div class="phone-avatar">
 🐝
 </div>
 
+
 <div class="phone-name">
 
-<strong>Bee</strong>
+<strong>
+Bee
+</strong>
 
-<span>Your booking assistant</span>
+<span>
+Your booking assistant
+</span>
 
 </div>
 
-<div class="online"></div>
+
+<div class="online">
+</div>
+
 
 </div>
 
 
 <div class="chat">
+
 
 <div class="bubble bee">
 
@@ -1684,7 +2647,7 @@ This is the experience we're building for customers. They tell Bee what they're 
 
 Hi! I'm Bee. 💛
 
-<br>
+<br><br>
 
 What are we planning?
 
@@ -1706,7 +2669,7 @@ R15k budget.
 
 I've got you.
 
-<br>
+<br><br>
 
 Here's what I'd start with:
 
@@ -1715,49 +2678,78 @@ Here's what I'd start with:
 
 <div class="find-box">
 
+
 <div class="find-intro">
+
 🐝 The vendors I'd look for:
+
 </div>
+
 
 <div class="find-row">
 
-<span>🍽️ Catering</span>
+<span>
+🍽️ Catering
+</span>
 
-<strong>Find</strong>
+<strong>
+Find
+</strong>
 
 </div>
+
 
 <div class="find-row">
 
-<span>🎧 DJ</span>
+<span>
+🎧 DJ
+</span>
 
-<strong>Find</strong>
+<strong>
+Find
+</strong>
 
 </div>
+
 
 <div class="find-row">
 
-<span>🎈 Decor</span>
+<span>
+🎈 Decor
+</span>
 
-<strong>Find</strong>
+<strong>
+Find
+</strong>
 
 </div>
+
 
 <div class="find-row">
 
-<span>🎂 Cake</span>
+<span>
+🎂 Cake
+</span>
 
-<strong>Find</strong>
+<strong>
+Find
+</strong>
 
 </div>
+
 
 <div class="find-row">
 
-<span>📸 Photography</span>
+<span>
+📸 Photography
+</span>
 
-<strong>Find</strong>
+<strong>
+Find
+</strong>
 
 </div>
+
 
 <div class="find-button">
 
@@ -1765,9 +2757,12 @@ Let's Find Them →
 
 </div>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 </div>
 
@@ -1782,16 +2777,23 @@ Let's Find Them →
      VENDOR VALUE
 ========================================================= -->
 
-<section class="vendor-section" id="vendors">
+<section
+class="vendor-section"
+id="vendors">
 
 <div class="container">
+
 
 <h2 class="section-title">
 
 Built for vendors who want
-<span>more than likes.</span>
+
+<span>
+more than likes.
+</span>
 
 </h2>
+
 
 <p class="section-subtitle">
 
@@ -1801,7 +2803,9 @@ Bee helps people who are actually planning an event find you.
 
 </p>
 
+
 <div class="vendor-grid">
+
 
 <div class="vendor-card">
 
@@ -1819,6 +2823,7 @@ Get discovered by people actively looking for event services.
 
 </div>
 
+
 <div class="vendor-card">
 
 <div class="vendor-icon">
@@ -1834,6 +2839,7 @@ Turn customer searches into direct conversations about your services.
 </p>
 
 </div>
+
 
 <div class="vendor-card">
 
@@ -1851,6 +2857,7 @@ More visibility means more opportunities to turn enquiries into bookings.
 
 </div>
 
+
 <div class="vendor-card">
 
 <div class="vendor-icon">
@@ -1867,6 +2874,7 @@ Join early and help shape the marketplace around what vendors actually need.
 
 </div>
 
+
 </div>
 
 </div>
@@ -1882,18 +2890,28 @@ Join early and help shape the marketplace around what vendors actually need.
 
 <div class="container">
 
+
 <div class="positioning-box">
 
+
 <div class="positioning-side">
+
 
 <div class="eyebrow">
 The old way
 </div>
 
+
 <h3>
+
 Get listed.
-<span>Hope.</span>
+
+<span>
+Hope.
+</span>
+
 </h3>
+
 
 <p>
 
@@ -1901,22 +2919,42 @@ Traditional directories and marketplaces put your business on a page and leave t
 
 </p>
 
+
 <div class="positioning-list">
 
+
 <div>
-<span>✕</span>
+
+<span>
+✕
+</span>
+
 Hope the right customer finds you.
+
 </div>
 
+
 <div>
-<span>✕</span>
+
+<span>
+✕
+</span>
+
 Make the customer figure out what they need.
+
 </div>
 
+
 <div>
-<span>✕</span>
+
+<span>
+✕
+</span>
+
 Compete with every other listing.
+
 </div>
+
 
 </div>
 
@@ -1925,13 +2963,19 @@ Compete with every other listing.
 
 <div class="positioning-side">
 
+
 <div class="eyebrow">
 The Booker Bee way
 </div>
 
+
 <h3>
-Let <span>Bee</span> do the finding.
+
+Let <span>Bee</span>
+do the finding.
+
 </h3>
+
 
 <p>
 
@@ -1939,31 +2983,58 @@ Bee starts with the customer's event — then helps them work out which vendors 
 
 </p>
 
+
 <div class="positioning-list">
 
+
 <div>
-<strong>✓</strong>
+
+<strong>
+✓
+</strong>
+
 Customer tells Bee what they're planning.
+
 </div>
 
+
 <div>
-<strong>✓</strong>
+
+<strong>
+✓
+</strong>
+
 Bee identifies the services they need.
+
 </div>
 
+
 <div>
-<strong>✓</strong>
+
+<strong>
+✓
+</strong>
+
 Bee searches the Hive for relevant vendors.
+
 </div>
+
 
 <div>
-<strong>✓</strong>
+
+<strong>
+✓
+</strong>
+
 Your business gets the opportunity to be found.
+
 </div>
+
 
 </div>
 
 </div>
+
 
 </div>
 
@@ -1980,80 +3051,108 @@ Your business gets the opportunity to be found.
 
 <div class="container">
 
+
 <h2 class="section-title">
 
 How the
-<span>Hive</span>
+
+<span>
+Hive
+</span>
+
 works
 
 </h2>
 
+
 <p class="section-subtitle">
 
-Simple for customers. Valuable for vendors.
+Simple for customers.
+
+Valuable for vendors.
 
 </p>
 
+
 <div class="steps">
 
+
 <div class="step">
+
 
 <div class="step-number">
 01
 </div>
 
+
 <div class="step-icon">
 💬
 </div>
+
 
 <h3>
 Customer asks Bee
 </h3>
 
+
 <p>
+
 They tell Bee about their event, budget, location and what they're trying to plan.
+
 </p>
 
 </div>
 
 
 <div class="step">
+
 
 <div class="step-number">
 02
 </div>
 
+
 <div class="step-icon">
 🐝
 </div>
+
 
 <h3>
 Bee works it out
 </h3>
 
+
 <p>
+
 Bee helps turn the event idea into a list of services and vendors the customer may need.
+
 </p>
 
 </div>
 
 
 <div class="step">
+
 
 <div class="step-number">
 03
 </div>
 
+
 <div class="step-icon">
 🔎
 </div>
+
 
 <h3>
 Bee finds the Hive
 </h3>
 
+
 <p>
+
 Relevant vendors inside Booker Bee become part of the customer's search.
+
 </p>
 
 </div>
@@ -2061,23 +3160,30 @@ Relevant vendors inside Booker Bee become part of the customer's search.
 
 <div class="step">
 
+
 <div class="step-number">
 04
 </div>
+
 
 <div class="step-icon">
 📲
 </div>
 
+
 <h3>
 You get the enquiry
 </h3>
 
+
 <p>
+
 The customer connects with vendors and starts the booking conversation.
+
 </p>
 
 </div>
+
 
 </div>
 
@@ -2094,18 +3200,25 @@ The customer connects with vendors and starts the booking conversation.
 
 <div class="container">
 
+
 <div class="final-cta">
+
 
 <div class="eyebrow">
 🐝 FOUNDING 50
 </div>
 
+
 <h2>
 
 Put your business
-<span>in Bee's Hive.</span>
+
+<span>
+in Bee's Hive.
+</span>
 
 </h2>
+
 
 <p>
 
@@ -2115,15 +3228,18 @@ Get in early, get discovered, and help us build the event marketplace vendors ac
 
 </p>
 
+
 <div class="final-buttons">
 
+
 <a
-href="https://wa.me/27847517475?text=Hi%20Booker%20Bee%20%F0%9F%90%9D%20I%27d%20like%20to%20claim%20my%20FREE%20Founding%2050%20vendor%20spot."
+href="https://wa.me/27847517475?text=Hi%20Bee%20%F0%9F%90%9D%20I%27d%20like%20to%20claim%20my%20FREE%20Founding%2050%20vendor%20spot."
 class="button">
 
 🐝 Claim My Founding Spot →
 
 </a>
+
 
 <a
 href="https://wa.me/27847517475?text=Hi%20Bee%20%F0%9F%90%9D%20I%27m%20planning%20an%20event%20and%20want%20to%20see%20what%20you%20can%20help%20me%20book."
@@ -2132,6 +3248,7 @@ class="button secondary">
 💬 Ask Bee
 
 </a>
+
 
 </div>
 
@@ -2150,13 +3267,20 @@ class="button secondary">
 
 <div class="container">
 
+
 <div class="footer-top">
+
 
 <div class="footer-brand">
 
+
 <div class="logo">
 
-<div class="logo-bee">🐝</div>
+
+<div class="logo-bee">
+🐝
+</div>
+
 
 <div class="logo-text">
 
@@ -2170,7 +3294,9 @@ She Books It For You.
 
 </div>
 
+
 </div>
+
 
 <p>
 
@@ -2178,43 +3304,121 @@ The event marketplace where Bee helps customers find the people they need — an
 
 </p>
 
+
 </div>
 
 
 <div class="footer-links">
 
-<a href="#vendors">For Vendors</a>
 
-<a href="#how">How It Works</a>
+<a href="#vendors">
+For Vendors
+</a>
 
-<a href="#bee">Meet Bee</a>
 
-<a href="#customer">Customer Experience</a>
+<a href="#how">
+How It Works
+</a>
 
-<a href="#founding">Founding 50</a>
 
-<a href="https://wa.me/27847517475">WhatsApp</a>
+<a href="#bee">
+Meet Bee
+</a>
+
+
+<a href="#customer">
+Customer Experience
+</a>
+
+
+<a href="#founding">
+Founding 50
+</a>
+
+
+<a href="https://wa.me/27847517475">
+WhatsApp
+</a>
+
 
 </div>
+
 
 </div>
 
 
 <div class="footer-bottom">
 
+
 <p>
 © 2026 Booker Bee. All rights reserved.
 </p>
+
 
 <p>
 Built for the event industry 🐝
 </p>
 
+
 </div>
+
 
 </div>
 
 </footer>
 
+
+<!-- =========================================================
+     SMOOTH INTERNAL NAVIGATION
+========================================================= -->
+
+<script>
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(function(link){
+
+    link.addEventListener(
+        "click",
+        function(event){
+
+            const targetId =
+                this.getAttribute("href");
+
+            if(
+                !targetId ||
+                targetId === "#"
+            ){
+
+                return;
+
+            }
+
+            const target =
+                document.querySelector(targetId);
+
+            if(target){
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+
+                    behavior:"smooth",
+
+                    block:"start"
+
+                });
+
+            }
+
+        }
+    );
+
+});
+
+</script>
+
+
 </body>
+
 </html>
